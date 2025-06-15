@@ -8,10 +8,10 @@ function App() {
     <div>
       <Excursie
         id='1'
-        ora='10:00'
-        titlu='Întâlnire cu presa'
-        loc='Sala G114'
-        descriere='Nu este cazul'
+        data='10 iun 2025'
+        titlu='Excursie cu bicicletele'
+        loc='Pădurea Fagetului'
+        descriere='O zi frumoasă'
         sterge={stergeExcursie}
       />
     </div>
