@@ -20,7 +20,7 @@ const Excursii = (props) => {
   return (
     <>
       <h2 className='mt-4' style={stil.h2}>
-        Agenda
+        Excursii
       </h2>
       <hr />
       <div>{listaExcursii}</div>
