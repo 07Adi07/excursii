@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import Excursie from "./excursie";
 
 function App() {
+  const stergeExcursie = (id) => {};
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Excursie
+        id='1'
+        ora='10:00'
+        titlu='Întâlnire cu presa'
+        loc='Sala G114'
+        descriere='Nu este cazul'
+        sterge={stergeExcursie}
+      />
     </div>
   );
 }
