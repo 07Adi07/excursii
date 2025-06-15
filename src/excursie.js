@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 
 const Excursie = (props) => {
-  const { data, titlu, loc, descriere, id, sterge } = props;
+  const { id, data, titlu, loc, descriere, sterge } = props;
 
   const stil = {
     borderBottom: "1px solid #777",
