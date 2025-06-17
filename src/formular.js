@@ -3,10 +3,11 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 const Formular = (props) => {
-  const [data, setData] = useState("");
-  const [titlu, setTitlu] = useState("");
-  const [loc, setLoc] = useState("");
-  const [descriere, setDescriere] = useState("");
+  const [id, setId] = useState(props.obedit.id);
+  const [data, setData] = useState(props.obedit.data);
+  const [titlu, setTitlu] = useState(props.obedit.titlu);
+  const [loc, setLoc] = useState(props.obedit.loc);
+  const [descriere, setDescriere] = useState(props.obedit.descriere);
 
   const stil = {
     h2: { textAlign: "center" },
@@ -15,18 +16,18 @@ const Formular = (props) => {
   const tratezSubmit = (evt) => {
     evt.preventDefault();
     const excursie = { data, titlu, loc, descriere };
-    props.transmit(excursie); //  Transmit spre App obiectul "excursie"
-    //  Golesc controalele formularului
-    setData("");
-    setTitlu("");
-    setLoc("");
-    setDescriere("");
+    if (id === 0) {
+      props.transmit(excursie);
+    } else {
+      excursie.id = id;
+      props.editez(excursie);
+    }
   };
 
   return (
     <>
       <h2 className='mt-4' style={stil.h2}>
-        Excursie nouă
+        {id === 0 ? "Excursie noua" : "Editare excursie"}
       </h2>
       <hr />
       <Form onSubmit={tratezSubmit}>

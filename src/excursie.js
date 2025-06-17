@@ -1,29 +1,50 @@
 import React from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+import { BsPencilSquare } from "react-icons/bs";
+import { BsTrashFill } from "react-icons/bs";
 
 const Excursie = (props) => {
-  const { id, data, titlu, loc, descriere, sterge } = props;
+  const { data, titlu, loc, descriere, sterge, editeaza, id } = props;
 
   const stil = {
-    borderBottom: "1px solid #777",
+    svg: {
+      PointerEvent: "none",
+    },
   };
 
   return (
     <Container>
-      <Row style={stil}>
-        <Col sm={9}>
-          <h4>
-            {data}-{titlu}
-          </h4>
+      <h4>
+        {data}-{titlu}
+      </h4>
+      <Row>
+        <Col xs={9}>
           <h6>Loc: {loc}</h6>
-          <p>Descriere:{descriere}</p>
         </Col>
-        <Col sm={3} className='d-flex align-items-center'>
-          <Button variant='primary' onClick={() => sterge(id)}>
-            Sterge
+        <Col xs={3} className='d-flex align-items-center'>
+          <Button
+            variant='link'
+            onClick={() => editeaza(id)}
+            id={id}
+            style={stil}
+          >
+            <BsPencilSquare />
+          </Button>
+          <Button
+            variant='link'
+            onClick={() => sterge(id)}
+            id={id}
+            style={stil}
+          >
+            <BsTrashFill />
           </Button>
         </Col>
       </Row>
+      <p>{descriere}</p>
+      <hr />
     </Container>
   );
 };

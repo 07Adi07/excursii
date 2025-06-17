@@ -2,7 +2,7 @@ import React from "react";
 import Excursie from "./excursie";
 
 const Excursii = (props) => {
-  const { excursii, sterge } = props;
+  const { excursii, sterge, editeaza } = props;
   const listaExcursii = excursii.map((item) => (
     <Excursie
       data={item.data}
@@ -12,6 +12,7 @@ const Excursii = (props) => {
       id={item.id}
       key={item.id}
       sterge={sterge}
+      editeaza={editeaza}
     />
   ));
   const stil = {
